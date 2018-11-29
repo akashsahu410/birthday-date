@@ -26,10 +26,25 @@ class App extends Component {
     }
     this.setState({result:sum})
   }
+
   handleChange=(e)=>{
-  let obj={}
+  let obj={},flag=0
+  console.log("entered state",this.state.select)
+  let name=e.target.name
   obj[e.target.name]=e.target.value
-    this.state.select.push(obj)
+  for(let i=0;i<this.state.select.length;i++){
+    console.log("inside if",name,Object.keys(this.state.select[i])[0])
+    if(Object.keys(this.state.select[i])[0] === name){
+      flag=1;
+      this.state.select.splice(i,i+1)
+      break;
+    }
+  }
+    if(flag === 0){
+      this.state.select.push(obj)
+    }
+  console.log("exited state",this.state.select)
+
   }
   render() {
     return (
