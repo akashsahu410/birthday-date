@@ -36,7 +36,7 @@ class App extends Component {
     console.log("inside if",name,Object.keys(this.state.select[i])[0])
     if(Object.keys(this.state.select[i])[0] === name){
       flag=1;
-      this.state.select.splice(i,i+1)
+      this.state.select.splice(i,1)
       break;
     }
   }
